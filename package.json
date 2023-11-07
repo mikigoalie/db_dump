@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "mysqldump": "^3.2.0"
+  }
+}

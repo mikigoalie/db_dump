@@ -1,0 +1,9 @@
+{
+    "server": "",
+    "database": "",
+    "userid": "",
+    "password": "",
+    "compressFile": false,
+    "run_at_start": true,
+    "run_every_x_hours": 12
+}

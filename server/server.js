@@ -36,20 +36,22 @@ const dump = async (sql_convar) => {
 }
 
 (() => {
-    console.log(`${prefix} initializing.`)
-    const sql_convar = convert(GetConvar('mysql_connection_string'))
-
-    if (!sql_convar) console.log(`${prefix} an error occured when getting SQL convar.`)
-
-    if (cfg?.run_at_start) {
-        dump(sql_convar)
-    }
-
-    if (!cfg?.run_every_x_hours || cfg?.run_every_x_hours == 0) return;
-
-    setInterval(() => {
-        dump(sql_convar);
-    }, (1000 * 60 * 60) * (cfg?.run_every_x_hours || 12));
+    setTimeout(() => {
+        console.log(`${prefix} initializing.`)
+        const sql_convar = convert(GetConvar('mysql_connection_string'))
+    
+        if (!sql_convar) console.log(`${prefix} an error occured when getting SQL convar.`)
+    
+        if (cfg?.run_at_start) {
+            dump(sql_convar)
+        }
+    
+        if (!cfg?.run_every_x_hours || cfg?.run_every_x_hours == 0) return;
+    
+        setInterval(() => {
+            dump(sql_convar);
+        }, (1000 * 60 * 60) * (cfg?.run_every_x_hours || 12));
+    }, 1000);
 })();
 
 
